@@ -11,10 +11,12 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final ProductDetauilArguments arguments =
         ModalRoute.of(context).settings.arguments;
-    return Scaffold(
-      backgroundColor: Color(0xFFF5F6F9),
-      appBar: CustomAppBar(arguments.product.rating),
-      body: Body(product: arguments.product),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Color(0xFFF5F6F9),
+        appBar: CustomAppBar(arguments.product.rating),
+        body: SingleChildScrollView(child: Body(product: arguments.product)),
+      ),
     );
   }
 }
